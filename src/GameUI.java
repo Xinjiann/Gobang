@@ -1,14 +1,26 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * 五子棋：1.棋盘类(游戏界面)
+ *       2.棋子:监听器(设置交互功能)
+ *       3.画笔：在界面程序显示绘制内容(棋子)
+ *
+ *  练习：1.完善棋盘绘制
+ *       2.落在棋盘的交点上(黑白交替出现)
+ *       3.棋子保存，判断输赢？
+ */
 public class GameUI {
+
+  public static int boardSize = 800;
+  public static int pieceSize = 50;
 
 
   //1.显示游戏界面
   public void initUI(){
     //窗体
     JFrame jf = new JFrame();
-    jf.setSize(800,800);
+    jf.setSize(boardSize, boardSize);
     jf.setTitle("五子棋游戏");
     //居中显示
     jf.setLocationRelativeTo(null);
@@ -39,3 +51,4 @@ public class GameUI {
     ui.initUI();
   }
 }
+

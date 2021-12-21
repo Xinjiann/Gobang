@@ -12,17 +12,25 @@ public class GameMouse implements MouseListener {
     this.gr = gr;
   }
   public void mouseClicked(MouseEvent e){
-    System.out.println("点击");
 
     //获取当前坐标值
     int x = e.getX();
     int y = e.getY();
 
     //绘制棋盘
-//        gr.drawLine();
+    int index;
+    for (int i=0; i<8; i++){
+      index = i*100;
+      //横线
+      gr.drawLine(0, index, GameUI.boardSize, index);
+      //竖线
+      gr.drawLine(index, GameUI.boardSize, index, 0);
+    }
 
     //下棋子
-    gr.fillOval(x,y,50,50);
+    int xRound = round(x);
+    int yRound = round(y);
+    gr.fillOval(xRound,yRound,GameUI.pieceSize,GameUI.pieceSize);
 
   }
   public void mousePressed(MouseEvent e){
@@ -38,4 +46,9 @@ public class GameMouse implements MouseListener {
   public void mouseExited(MouseEvent e){
 
   }
+
+  private int round(int num){
+    return (int)Math.round(((double)num)/100)*100-GameUI.pieceSize/2;
+  }
 }
+
